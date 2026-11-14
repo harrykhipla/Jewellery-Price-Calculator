@@ -12,6 +12,14 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
 
+      - name: Check files
+        run: |
+          pwd
+          ls -la
+          ls -la OmGanpati.xcodeproj || true
+          ls -R App || true
+          xcodebuild -list -project OmGanpati.xcodeproj || true
+
       - name: Build (no code signing)
         run: |
           xcodebuild \
